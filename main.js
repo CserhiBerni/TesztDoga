@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let number = parseInt(document.getElementById("input").value);
     numberList.push(number);
     document.getElementById("list").innerHTML = "";
-    document.getElementById("minimum").innerHTML = "";
+    document.getElementById("maximum").innerHTML = "";
 
     for (let i = 0; i < numberList.length; i++) {
       let li = document.createElement("li");
@@ -16,20 +16,20 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.getElementById("showMinimum").addEventListener("click", () => {
-    document.getElementById("minimum").innerHTML = 
+  document.getElementById("showMaximum").addEventListener("click", () => {
+    document.getElementById("maximum").innerHTML = 
     `
-    A lista minimuma: ${minimum(numberList)}
+    A lista maximuma: ${maximum(numberList)}
     `;
   });
 });
 
-function minimum(array) {
-  let min = array[0];
+function maximum(array) {
+  let max = array[0];
   for (let i = 1; i < array.length; i++) {
-    if (array[i] < min) {
-      min = array[i];
+    if (array[i] > max) {
+      max = array[i];
     }
   }
-  return min;
+  return max;
 }
